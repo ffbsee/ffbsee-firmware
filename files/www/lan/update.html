@@ -6,22 +6,22 @@
 <meta charset="utf-8"/>
 <link rel="stylesheet" type="text/css" href="style.css" />
 <script src="shared.js"></script>
-<script src="upgrade.js"></script>
+<script src="update.js"></script>
 </head>
 <body onload="init();">
 
 <fieldset>
 	<legend>Aktuelle Firmware suchen</legend>
 	<div>
-		<button type="button" onclick="lookup_upgrade()">Suchen</button>
-		<button type="button" onclick="lookup_and_apply_upgrade()">Suchen und Aktualisieren</button>
+		<button type="button" class="button blue sharp" onclick="lookup_upgrade()">Suchen</button>
+		<button type="button" class="button blue sharp" onclick="lookup_and_apply_upgrade()">Suchen und Aktualisieren</button>
 	</div>
-	<p>Die <a href="https://ffbsee.de/index.php/Hauptseite">Freifunk-Community Bodensee</a> bietet neue Firmware-Versionen für diesen Router an. Diese enthalten Fehlerbereinigungen und neue Funktionen.</p>
+	<p>Die <a href="https://ffbsee.de/">Freifunk Bodensee-Community</a> bietet neue Firmware-Versionen für diesen Router an. Es ist ratsam immer die aktuellste Version zu installieren, um von Fehlerbereinigungen und neue Funktionen zu profitieren.</p>
 </fieldset>
 <fieldset>
 	<legend>Router zur&#252;cksetzen</legend>
 	<div>
-		<button type="button" onclick="restore_firmware()">Zur&#252;cksetzen</button>
+		<button type="button" class="button red sharp" onclick="restore_firmware()">Zur&#252;cksetzen</button>
 	</div>
 	<p>Alle Einstellungen werden zur&#252;ckgesetzt und der Router startet neu.</p>
 </fieldset>
@@ -29,12 +29,12 @@
 	<legend>Manuelles Update</legend>
 	<div id="selected_image"></div>
 	<form action="/cgi-bin/upgrade" enctype="multipart/form-data" method="post">
-	<div class="radio_option">
+	<div class="radio_option_upgrade">
 		<label>
 			<input type="file" id="import_file" name="firmware" onchange="$('selected_image').innerHTML=this.value.replace(/^.*[\\\/](.*)$/, '$1');" style="visibility:hidden;position:absolute;top:-50;left:-50"/>
 			<input type="hidden" name="func" value="apply_firmware" />
-			<button type="button" onclick="$('import_file').click()">Image Ausw&auml;hlen</button>
-			<button type="submit">Senden</button>
+			<button type="button" class="button blue sharp" onclick="$('import_file').click()">Image Ausw&auml;hlen</button>
+			<button type="submit" class="button red sharp" >Update</button>
 		</label>
 		<div>
 			<input type="checkbox" name="keep_config" value="yes" checked>
@@ -42,9 +42,8 @@
 		</div>
 	</div>
 	</form>
-	<p>Hier kann ein Freifunk-Image verwendet werden (*-sysupgrade.bin) oder die <a href="https://de.wikipedia.org/wiki/Firmware">Firmware</a> des Routerherstellers.</p>
+	<p>Hier kann ein Freifunk-Image (Dateiname endet auf "*-sysupgrade.bin") oder die Firmware des Routerherstellers verwendet werden.</p>
 </fieldset>
-
 
 </body>
 </html>
