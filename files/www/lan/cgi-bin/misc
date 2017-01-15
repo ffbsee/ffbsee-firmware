@@ -11,23 +11,23 @@ case $GET_func in
 		wifi status
 	;;
 	wifiscan)
-		iw dev "$GET_device" scan 2> /dev/null | grep '^BSS \|SSID\|set: channel\|signal\|capability\|MESH ID'
+		iw dev "$GET_device" scan 2> /dev/null | grep '^BSS \|SSID\|primary channel:\|signal\|capability\|MESH ID'
 	;;
 	set_config_file)
 		file_name="$GET_name"
 		file_data="$GET_data"
 
 		if echo "$file_data" > "/etc/config/$file_name" 2> /dev/null; then
-			echo "(I) Einstellungen wurden gespeichert. Bitte Neustarten."
+			echo "(I) Einstellungen wurden gespeichert. Bitte neustarten."
 		else
-			echo "(E) Beim Speichern ist ein Fehler aufgetreten. Bitte Neustarten."
+			echo "(E) Beim Speichern ist ein Fehler aufgetreten. Bitte neustarten."
 		fi
 	;;
 	name)
 		uci get -q freifunk.@settings[0].name
 	;;
 	*)
-		echo "(E) misc: Invalid command: '$GET_func'"
+		echo "(E) Misc: ungültiger Befehl: '$GET_func'"
 	;;
 esac
 %>

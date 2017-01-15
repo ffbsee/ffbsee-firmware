@@ -143,13 +143,14 @@ initial_freifunk_setup()
 
 initial_local_node_setup()
 {
-	echo "(I) Setup IPv4 local node access."
+	echo "(I) Setup IPv4 and IPv6 local node access."
 
-	local ula_prefix="$(uci get network.globals.ula_prefix)"
-	local addr6="${ula_prefix%%::*}::0"
 	local addr4="10.11.175.127"
+	local addr6="$(uci get network.globals.ula_prefix)" #CIDR notation
+
 
 	uci add_list network.freifunk.ipaddr="$addr4"
+	uci add_list network.freifunk.ipaddr6="$addr6"
 
 	cat >> /etc/firewall.user <<-  EOF
 
@@ -215,7 +216,7 @@ initial_setup()
 	(echo ""; sleep 1; echo "") | passwd > /dev/null
 
 	#get a unique MAC address to identify the node
-	local mac="$(cat /sys/class/ieee80211/phy0/macaddress)"
+	local mac="$(cat /sys/class/ieee80211/phy0/macaddress 2> /dev/null)"
 	if [ -z "$mac" -o "$mac" = "00:11:22:33:44:55" ]; then
 		mac="$(cat /sys/class/net/eth0/address)"
 		if [ -z "$mac" -o "$mac" = "00:11:22:33:44:55" ]; then
@@ -246,13 +247,13 @@ initial_setup()
 	initial_wifi_setup
 
 	# ------------------------------------- #
-	# P R I V A T E  S E T U P #
+	# L A N  S E T U P #
 	# ------------------------------------- #
 
 	initial_lan_setup "$lan_interface"
 
 	# ------------------------------------- #
-	# P U B L I C  S E T U P #
+	# F R E I F U N K  S E T U P #
 	# ------------------------------------- #
 
 	initial_freifunk_setup "bat0" "$mac_la"
@@ -457,7 +458,7 @@ start()
 
 	echo "(I) Update from '$from_version' to '$to_version'"
 	case "$from_version" in
-		"0.0.2")
+		0.0.2*)
 			echo "(I) Apply 0.0.2 update."
 			update_002_to_004
 			update_004
@@ -465,7 +466,7 @@ start()
 			update_006
 			update_version
 			;;
-		"0.0.3")
+		0.0.3*)
 			echo "(I) Apply 0.0.3 update."
 			update_002_to_004
 			update_004
@@ -473,35 +474,35 @@ start()
                         update_006
 			update_version
 			;;
-		"0.0.4")
+		0.0.4*)
 			echo "(I) Apply 0.0.4 update."
 			update_004
 			update_005
                         update_006
 			update_version
 			;;
-		"0.0.5")
+		0.0.5*)
 			echo "(I) Apply 0.0.5 update."
 			update_005
 			update_006
 			update_version
 			;;
-		"0.0.6")
+		0.0.6*)
 			echo "(I) Apply 0.0.6 update."
 			update_006
 			update_version
 			;;
-		"0.1.0-testing")
+		0.1.0*)
                         echo "(I) Apply 0.1.0-testing update."
                         update_006
                         update_version
                         ;;
-                "0.6.0-dev")
+                0.6.0*)
                 	echo "(I) Apply 0.6.0-dev update."
                         update_061
                         update_version
                         ;;
-                "0.6.1")
+                0.6.1*)
                 echo "(I) Apply 0.6.1 update."
                         update_061
                         update_version

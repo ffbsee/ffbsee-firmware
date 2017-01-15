@@ -26,7 +26,7 @@ function adv_apply()
 function adv_toggle(e)
 {
 	adv_mode = !adv_mode;
-	e.innerHTML = adv_mode ? "Erweitert: AN" : "Erweitert: AUS";
+	e.innerHTML = adv_mode ? "Erweiterte Ansicht: AN" : "Erweiterte Ansicht: AUS";
 	adv_apply();
 }
 
@@ -108,18 +108,20 @@ function logout() {
 
 </head>
 <body onload="preselect(); setTitle();">
-
-<ul id="globalnav">
-	<li><a href="home.html" id="first">Home</a></li>
-	<li><a href="settings.html">Einstellungen</a></li>
-	<li><a href="network.html">Netzwerk</a></li>
-	<li><a href="wifiscan.html">WLAN-Scan</a></li>
-	<li><a href="upgrade.html">Upgrade</a></li>
-	<li><a href="password.html">Passwort</a></li>
-	<li><a href="#" onclick="reboot()">Neustart</a></li>
-	<li><a href="#" onclick="logout()">Logout</a></li>
-	<li><a href="#" onclick="adv_toggle(this)">Erweitert: AUS</a></li>
-</ul>
+<div id="menu">
+	<ul id="globalnav">
+		<li><a href="home.html" id="first">Home</a></li>
+		<li><a href="settings.html">Einstellungen</a></li>
+		<li><a href="network.html">Netzwerk</a></li>
+		<li><a href="wifiscan.html">WLAN-Scan</a></li>
+		<li><a href="update.html">Update</a></li>
+		<li><a href="password.html">Passwort</a></li>
+		<li><a href="#" onclick="reboot()">Neustart</a></li>
+		<li><a href="#" onclick="logout()">Logout</a></li>
+	</ul>
+	<a href="#" id="extendedview" onclick="adv_toggle(this)">Erweiterte Ansicht: AUS</a>
+</div>
+<div id="main">
 <br>
 <pre id="msg" tabindex="-1"></pre>
 
@@ -128,6 +130,7 @@ function logout() {
 <div id="body"></div>
 
 <div id="footer"></div>
+</div>
 <noscript><h1>JavaScript ist deaktiviert</h1><br/><a>Hallo Freifunker, die Administration &#xFC;ber das Webinterface ben&#xF6;tigt <b>JavaScript!</b><br/><br/>Um diese Seite sinvoll Nutzen zu k&#xF6;nnen <b>aktivieren</b> Sie bitte entweder JavaScript oder Nutzen Sie den Zugang &#xFC;ber SSH. in diesem fall müssen Sie sich aber schon etwas mit der Konfiguration unter OpenWRT auskennen.<br/><br/><br/><br/></noscript>
 <img class="footer-svg" src="footer.ffbsee.animated.svg"/>
 </body>

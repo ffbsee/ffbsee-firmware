@@ -1,0 +1,168 @@
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	font: 13px verdana,arial,'Bitstream Vera Sans',helvetica,sans-serif;
+	line-height: 1.7em;
+}
+
+h1, h2, h3, h4, h5, h6, label {
+	color: #34495e;
+}
+
+h2 {
+	font-size: 1.5em;
+	margin: 1.5em 0;
+}
+
+h3 {
+	font-size: 1.17em;
+	margin: 1em 0;
+}
+
+.header {
+	margin: 0;
+	color: #333;
+	text-align: center;
+	padding: 2.5em 2em 0;
+	border-bottom: 1px solid #eee;
+}
+
+.header h1 {
+	margin: 0.2em 0;
+	font-size: 3em;
+	font-weight: 300;s
+}
+
+.header h2 {
+	font-weight: 300;
+	color: #ccc;
+	padding: 0;
+	margin-top: 1em;
+}
+
+.pure-g {
+	text-align: center;
+	font-family: FreeSans,Arimo,"Droid Sans",Helvetica,Arial,sans-serif;
+	display: -webkit-flex;
+	-webkit-flex-flow: row wrap;
+}
+
+.pure-u-md-1-3 {
+	letter-spacing: normal;
+	word-spacing: normal;
+	vertical-align: top;
+	width: 33.3333%;
+}
+
+.menu {
+	border: 0;
+	border-bottom: 1px solid #b7b7b7;
+	padding: 0.5em;
+	box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+	text-align: left;
+	background: #2d3e50;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.community {
+	text-transform: uppercase;
+}
+
+.menu li {
+	list-style-type: none;
+}
+
+.menu li a:hover, .menu li a:focus {
+	background: none;
+	color: #AECFE5;
+}
+
+.menu .community {
+	color: white;
+	font-weight: 400;
+	font-size: 120%;
+}
+
+.menu li a {
+	padding: 5px 20px;
+}
+
+.menu a {
+	color: #6FBEF3;
+	border: 1px solid transparent;
+	border-left: 0;
+	border-right: 0;
+}
+
+.menu a, .menu .community {
+	display: block;
+	line-height: 1.5em;
+	text-decoration: none;
+	padding: 5px 20px;
+	white-space: nowrap;
+}
+
+.menu > .community {
+	display: inline-block;
+	margin: 0;
+	vertical-align: middle;
+}
+
+a {
+    color: #23527c;
+	text-decoration: none;
+}
+
+.menu ul {
+	display: inline-block;
+	vertical-align: middle;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	z-index: 1;
+	float: right;
+}
+
+.menu li {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.content {
+	margin: 0 auto;
+	padding: 0 2em;
+	max-width: 800px;
+	margin-bottom: 50px;
+	line-height: 1.6em;
+	color: #444;
+}
+
+.content-subhead {
+	margin: 50px 0 20px 0;
+	font-weight: 300;
+	color: #888;
+}
+
+.login-button {
+	background-color: #1f8dd6;
+	color: white;
+	padding: 0.5em 2em;
+	border-radius: 5px;
+	border: 0;
+	display: inline-block;
+	line-height: normal;
+	white-space: nowrap;
+	vertical-align: baseline;
+	text-align: center;
+	cursor: pointer;
+	user-select: none;
+}

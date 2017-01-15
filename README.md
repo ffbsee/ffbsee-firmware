@@ -8,7 +8,9 @@ Included is Internet connectivity and a web interface.
 
 Please talk to us on IRC if anything does not work!
 
-To build the firmware you need a Unix console to enter commands into.
+[Precompiled firmware images](https://vpn1.ffbsee.de/freifunk/firmware/ "Precompiled firmware images") are available on our server. All other released versions here on github are out-of-date.
+
+To build the firmware yourself you need a Unix console to enter commands into.
 Install dependencies for the build environment (Debian/Ubuntu):
 
     sudo apt-get install subversion g++ zlib1g-dev build-essential git python
@@ -16,8 +18,9 @@ Install dependencies for the build environment (Debian/Ubuntu):
 
 Build commands for the console:
 
-    git clone git://git.openwrt.org/15.05/openwrt.git
+    git clone https://github.com/openwrt/openwrt.git
     cd openwrt
+    git reset --hard 0f757bd2606971252f901ef3faf4dbd0086315f7
     
     ./scripts/feeds update -a
     ./scripts/feeds install -a
@@ -60,3 +63,5 @@ images are for further updates.
 
 Many routers have not been tested yet, but may work.
 Give it a try! :-)
+
+To build all images for all supported models see [github.com/freifunk-bielefeld](https://github.com/freifunk-bielefeld/docs/blob/master/release_howto.md#images-bauen)

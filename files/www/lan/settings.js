@@ -55,13 +55,13 @@ function appendSetting(p, path, value, mode)
 	case "latitude":
 		b = append_input(p, "Breitengrad", id, value);
 		b.lastChild.placeholder = "47.xxx";
-		addInputCheck(b.lastChild, /^$|^\d{1,3}\.\d{1,8}$/, "Ung\xfcltige Eingabe. Bitte nur maximal 8 Nachkommastellen und keine Kommas verwenden.");
+		addInputCheck(b.lastChild, /^$|^[1-9]\d{0,2}\.\d{1,8}$/, "Ung\xfcltige Eingabe. Bitte nur maximal 8 Nachkommastellen und keine Kommas oder f\xfchrenden Nullen verwenden.");
 		addHelpText(b, "Der Breitengrad (als Dezimalzahl) dieses Knotens auf der Freifunk-Karte.");
 		break;
 	case "longitude":
 		b = append_input(p, "L\xe4ngengrad", id, value);
 		b.lastChild.placeholder = "9.xxx";
-		addInputCheck(b.lastChild, /^$|^\d{1,3}\.\d{1,8}$/, "Ung\xfcltige Eingabe. Bitte nur maximal 8 Nachkommastellen und keine Kommas verwenden.");
+		addInputCheck(b.lastChild, /^$|^[1-9]\d{0,2}\.\d{1,8}$/, "Ung\xfcltige Eingabe. Bitte nur maximal 8 Nachkommastellen und keine Kommas oder f\xfchrende Nullen verwenden.");
 		addHelpText(b, "Der L\xe4ngengrad (als Dezimalzahl) dieses Knotens auf der Freifunk-Karte.");
 		break;
 	case "name":
@@ -93,7 +93,7 @@ function appendSetting(p, path, value, mode)
 		break;
 	case "publish_map":
 		b = append_radio(p, "Zur Karte beitragen", id, value, [["Nichts", "none"], ["Wenig", "basic"], ["Mehr", "more"], ["Alles", "all"]]);
-		addHelpText(b, "Mit wie vielen Informationen soll dieser Knoten zur Knotenkarte beitragen? (Wenig: Name/Version/Position/Kontakt, Mehr: Modell/Uptime/CPU-Auslastung, Alles: Speicherauslastung/IP-Adressen)");
+		addHelpText(b, "Mit wie vielen Informationen soll dieser Knoten zur Knotenkarte beitragen? (Wenig: Name/Version/Position/Kontakt, Mehr: +Modell/+Uptime/+CPU-Auslastung, Alles: +Speicherauslastung/+IP-Adressen des Routers im Freifunk Netz)");
 		break;
 	case "exittunnel":
 		b = append_radio(p, "Exit-Tunnel", id, value, [["Ausland", "foreign"], ["Deutschland", "domestic"], ["Egal", "either"]]);
@@ -136,7 +136,7 @@ function appendSetting(p, path, value, mode)
 		addHelpText(b, "Ein Name der angegebenen Netzwerkressource. Z.B. \"Meine Webseite\".");
 		break;
 	case "service_display_max":
-		b = append_input(p, "Max. angezeigte Eintr\xe4ge", id, value);
+		b = append_input(p, "Max.-Eintr\xe4ge", id, value);
 		addInputCheck(b.lastChild, /^\d+$/, "Ung\xfcltige Zahl.");
 		addHelpText(b, "Maximale Anzahl der auf der eigenen Statusseite angezeigten Eintr\xe4ge.");
 		break;

@@ -3,9 +3,7 @@
 # Create an IPv6 ULA-address.
 ula_addr()
 {
-        local prefix a mac="$1" invert=${2:-0}
-
-	prefix="$(uci get network.globals.ula_prefix)"
+	local prefix a  prefix="$1" mac="$2" invert=${3:-0}
 
 	if [ $invert -eq 1 ]; then
 		# translate to local administered mac
