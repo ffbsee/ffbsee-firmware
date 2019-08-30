@@ -25,7 +25,7 @@ Build commands for the console:
 ```bash
 git clone git://git.openwrt.org/source.git
 cd source
-git reset --hard a941d39460b67d2d21e86d9c73d3e9b099b2d7fb
+git reset --hard 8bf8de95a20d9fee54bbd579832c578c62cbc901
 
 git clone https://github.com/ffbsee/ffbsee-firmware.git
 ./minify-webstuff.sh
