@@ -1,7 +1,7 @@
 #!/bin/sh
 TESTIP=$(nslookup "speed.hetzner.de" | grep -oE "^Address .*" | grep -oE '([a-f0-9:]+:+)+[a-f0-9]+')
-TESTURL="https://speed.hetzner.de/100MB.bin"
-AMOUNT=$((100 * 8))
+TESTURL="https://speed.hetzner.de/20MB.bin"
+AMOUNT=$((20 * 8))
 MYFFGW=$(sockread /var/run/fastd.status < /dev/null 2> /dev/null | sed 's/\(.*\)"name": "gw\([0-9]*\)[^"]*"\(.*\)established\(.*\)/\2/g')
 case $MYFFGW in
   01)
